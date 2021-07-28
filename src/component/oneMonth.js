@@ -1,5 +1,5 @@
 import React from "react"
-import {useLocation} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
 const OneMonth = () => {
     const location = useLocation()
@@ -15,7 +15,18 @@ const OneMonth = () => {
         return (
             <tr key={index}>
                 {week.map((date,index) => date ?
-                    <td key={index}>{date.getDate()}</td>
+                    <td key={index}>
+                        <NavLink to={{
+                            pathname: `/day/${date.getDate()}`,
+                            state: {
+                                monthName: monthName,
+                                monthNumber: monthNumber,
+                                dayNumber: date.getDate()
+                            }
+                        }}>
+                            {date.getDate()}
+                        </NavLink>
+                    </td>
                     :
                     <td key={index} />)}
             </tr>

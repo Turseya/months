@@ -33,14 +33,15 @@ const Month = (props) => {
             {/*{props.montNumber},*/}
 
             <NavLink to={{
-                pathname: "/month",
+                pathname: `/month/${props.monthName}`,
                 state: {
                     monthName: props.monthName,
                     monthNumber: props.monthNumber,
                     weekDaysNames:  weekDaysNames,
                     monthDate: monthDate
                 }
-            }}>{props.monthName}</NavLink>
+            }}>{props.monthName}
+            </NavLink>
                <table>
                    <thead>
                    <tr>

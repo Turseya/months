@@ -1,8 +1,8 @@
 import React from "react";
 import {Switch, Route} from "react-router-dom";
 import Months from "./months";
-import Month from "./month";
 import OneMonth from "./oneMonth";
+import OneDay from "./oneDay";
 
 
 const Main = () => {
@@ -11,8 +11,11 @@ const Main = () => {
             <Route exact path={"/"}>
                 <Months />
             </Route>
-            <Route path={"/month"}>
+            <Route path={"/month/:monthName"}>
                 <OneMonth />
+            </Route>
+            <Route path={"/day/:dayNumber"} >
+                <OneDay />
             </Route>
         </Switch>
     )
