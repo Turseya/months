@@ -32,7 +32,6 @@ const OneMonth = () => {
             </tr>
         )
     })
-
     return (
         <div>
             {monthName}

@@ -1,5 +1,6 @@
 import React from "react";
 import Month from "./month";
+import classes from './month.module.css'
 
 const Months = (props) => {
     const date = new Date();
@@ -14,7 +15,7 @@ const Months = (props) => {
 
     return (
         <div>
-            <div>{monthComponent}</div>
+            <div className={classes.wrapper}>{monthComponent}</div>
         </div>
     )
 

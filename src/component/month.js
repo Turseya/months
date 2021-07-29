@@ -1,6 +1,7 @@
 import React from "react";
 import getMonthData from "../logic/calendar";
 import {NavLink} from "react-router-dom";
+import classes from './month.module.css';
 
 const Month = (props) => {
     const weekDaysNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -15,7 +16,7 @@ const Month = (props) => {
 
     const weekData = weekDaysNames.map(name => {
         return (
-            <th key={name}>{name}</th>
+            <th className={classes.week} key={name}>{name}</th>
             )
     })
     const result = monthDate.map((week, index) => {
@@ -29,9 +30,9 @@ const Month = (props) => {
             )
     })
     return (
-        <div>
+        <div className={classes.container}>
+            <div className={classes.monthName}>
             {/*{props.montNumber},*/}
-
             <NavLink to={{
                 pathname: `/month/${props.monthName}`,
                 state: {
@@ -40,11 +41,11 @@ const Month = (props) => {
                     weekDaysNames:  weekDaysNames,
                     monthDate: monthDate
                 }
-            }}>{props.monthName}
-            </NavLink>
+            }}>{props.monthName}</NavLink>
+            </div>
                <table>
                    <thead>
-                   <tr>
+                   <tr className={classes.weekDay}>
                        {weekData}
                    </tr>
                    </thead>
