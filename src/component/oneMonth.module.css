@@ -1,0 +1,22 @@
+.items {
+    text-decoration: none;
+    color: black;
+}
+.active {
+    border: 1px solid crimson;
+    border-radius: 100%;
+    background-color: crimson;
+}
+
+.oneMonthWrapp {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+}
+.monthName {
+    color: crimson;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}

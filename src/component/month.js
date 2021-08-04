@@ -13,6 +13,7 @@ const Month = (props) => {
     //     [new Date(), new Date(), new Date(), new Date(), undefined, undefined, undefined],
     //     ];
     const monthDate = getMonthData(props.year, props.monthNumber);
+    const currentDay = new Date();
 
     const weekData = weekDaysNames.map(name => {
         return (
@@ -22,10 +23,17 @@ const Month = (props) => {
     const result = monthDate.map((week, index) => {
         return (
             <tr key={index}>
-                {week.map((date,index) => date ?
-                    <td key={index}>{date.getDate()}</td>
-                    :
-                    <td key={index} />)}
+                {week.map((date,index) => {
+                    if (date != undefined) {
+                        let className = "default"
+                        if (date.getDate() == currentDay.getDate() && date.getMonth() == currentDay.getMonth()) {
+                            className = classes.active
+                        }
+                        return  <td className={className} key={index}>{date.getDate()}</td>
+                    } else {
+                        return <td key={index} />
+                    }
+                })}
             </tr>
             )
     })
